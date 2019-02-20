@@ -1,0 +1,12 @@
+app-header {
+  background-color: #00897B;
+  color: #fff;
+}
+
+paper-icon-button {
+  --paper-icon-button-ink-color: white;
+}
+
+app-drawer-layout:not([narrow]) [drawer-toggle] {
+  display: none;
+}

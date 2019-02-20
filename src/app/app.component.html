@@ -1,0 +1,27 @@
+<app-drawer-layout>
+
+  <app-drawer slot="drawer" swipe-open>
+    <app-toolbar>Getting Started</app-toolbar>
+    <section>
+      <p>Beauty drawer test. 😍</p>
+    </section>
+  </app-drawer>
+
+  <app-header-layout>
+
+    <app-header slot="header" reveals effects="waterfall">
+      <app-toolbar>
+        <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+        <div main-title>Title</div>
+      </app-toolbar>
+    </app-header>
+
+    <section>
+      <h3>Polymer 3 test</h3>
+      <paper-input label="Hello from Polymer" ironControl [(ngModel)]="value"></paper-input>
+      <paper-checkbox [checked]="checked" (checked-changed)="checked = $event.detail.value"></paper-checkbox>
+    </section>
+
+  </app-header-layout>
+
+</app-drawer-layout>

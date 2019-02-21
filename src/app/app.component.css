@@ -1,12 +1,9 @@
-app-header {
-  background-color: #00897B;
-  color: #fff;
-}
 
-paper-icon-button {
-  --paper-icon-button-ink-color: white;
-}
-
-app-drawer-layout:not([narrow]) [drawer-toggle] {
-  display: none;
+iron-image {
+  width: 720px;
+  height: 720px;
+  background-color: lightgray;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

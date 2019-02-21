@@ -1,25 +1,39 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import '@polymer/iron-image/iron-image.js';
 
-import '@polymer/app-layout/app-drawer-layout/app-drawer-layout';
-import '@polymer/app-layout/app-drawer/app-drawer';
-import '@polymer/app-layout/app-header/app-header';
-import '@polymer/app-layout/app-header-layout/app-header-layout';
-import '@polymer/app-layout/app-scroll-effects/app-scroll-effects';
-import '@polymer/app-layout/app-toolbar/app-toolbar';
+declare var $: any;
 
-import '@polymer/iron-icons/iron-icons';
-
-import '@polymer/paper-icon-button/paper-icon-button';
-import '@polymer/paper-checkbox/paper-checkbox';
-import '@polymer/paper-input/paper-input';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Polyng';
+export class AppComponent implements OnInit{
+  title = 'Mandelbrot';
   value: string;
   checked: boolean;
+
+  constructor(){}
+  image:any;
+   json={
+      "x":0,
+      "y":0,
+      "pix_x":0.00825,
+      "pix_y":0.00825,
+      "width":720,
+      "height":720,
+      "max_depth":1225,
+      "renderer":"cpp"
+   }
+   ngOnInit(){
+     this.setParmeter();
+   }
+   setParmeter(){
+     var json=JSON.stringify(this.json);
+    var img_url="http://fractalvalley.net/img?json="+json;
+    console.log(img_url)
+    $(".image").attr("src",img_url);
+    
+   }
 }

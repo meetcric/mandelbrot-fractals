@@ -23,12 +23,16 @@
     "@codebakery/origami": "^2.0.4",
     "@polymer/app-layout": "^3.0.0-pre.21",
     "@polymer/iron-icons": "^3.0.0-pre.21",
+    "@polymer/iron-image": "^3.0.1",
     "@polymer/paper-checkbox": "^3.0.0-pre.21",
     "@polymer/paper-icon-button": "^3.0.0-pre.21",
     "@polymer/paper-input": "^3.0.0-pre.21",
     "@webcomponents/webcomponentsjs": "^2.0.4",
     "core-js": "^2.5.4",
+    "jquery": "^3.3.1",
     "rxjs": "6.0.0",
+    "rxjs-compat": "^6.4.0",
+    "save": "^2.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

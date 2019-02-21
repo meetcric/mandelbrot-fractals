@@ -26,7 +26,9 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
+              "node_modules/jquery/dist/jquery.js"
+            
             ]
           },
           "configurations": {

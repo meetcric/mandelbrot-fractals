@@ -5,6 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PolymerModule } from '@codebakery/origami';
 import * as $ from 'jquery';
+ 
+/**
+ * importing the FractalView Polymer component
+ */
+import '../../src/app/fractal-view.js';
 
 @NgModule({
   imports: [

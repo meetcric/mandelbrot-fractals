@@ -30,10 +30,9 @@ export class AppComponent implements OnInit{
      this.setParmeter();
    }
    setParmeter(){
-     var json=JSON.stringify(this.json);
+    var json=JSON.stringify(this.json);
     var img_url="http://fractalvalley.net/img?json="+json;
     console.log(img_url)
-    $(".image").attr("src",img_url);
-    
+    $(".image").attr("imgsrc",img_url);
    }
 }

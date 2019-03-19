@@ -113,7 +113,7 @@ export class FractalImageComponent implements OnInit {
    */
   setParmeter() {
     var json = JSON.stringify(this.desired_image_properties);
-    var img_url = "http://127.0.1.1:8888/img?json=" + json;
+    var img_url = "http://fractalvalley.net/img?json=" + json;
     // console.log(json)
     console.log(img_url)
     $(".image").attr("src", img_url);

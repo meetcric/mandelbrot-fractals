@@ -240,6 +240,9 @@ export class FractalImageComponent implements OnInit {
   setMotionTimeout() {
     setTimeout(() => { this.applyMotion(); }, this.MOTION_TIMEOUT);
   }
+  /**
+   * Function responsible for velocity mode
+   */
   applyMotion() {
     if (this.dragging) {
       

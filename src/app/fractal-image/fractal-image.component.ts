@@ -113,7 +113,7 @@ export class FractalImageComponent implements OnInit {
    */
   setParmeter() {
     var json = JSON.stringify(this.desired_image_properties);
-    var img_url = "http://fractalvalley.net/img?json=" + json;
+    var img_url = "http://127.0.1.1:8888/img?json=" + json;
     // console.log(json)
     console.log(img_url)
     $(".image").attr("src", img_url);
@@ -130,7 +130,7 @@ export class FractalImageComponent implements OnInit {
         // Set flag `dragging`.
         this.dragging = true;
         if (this.motion !== "position") {
-          console.log(1)
+          
           //@ts-ignore
           this.motion_x = e.offsetX - e.target.clientWidth / 2.0;
           //@ts-ignore
@@ -187,6 +187,9 @@ export class FractalImageComponent implements OnInit {
         if (this.motion === "position") {
           this.zoomByAt(amt, (e.offsetX - e.target.clientWidth / 2.0) * this.desired_image_properties.pix_x,
             (e.offsetY - e.target.clientHeight / 2.0) * this.desired_image_properties.pix_y);
+        }
+        else {
+          this.motion_z += amt;
         }
       })
 
@@ -249,10 +252,16 @@ export class FractalImageComponent implements OnInit {
         this.velocity_x = this.motion_x * - this.VELOCITY_FACTOR;
         this.velocity_y = this.motion_y * - this.VELOCITY_FACTOR;
         this.velocity_z = this.motion_z * this.ZOOM_VELOCITY_FACTOR;
-      
       this.panBy(this.velocity_x, this.velocity_y);
+      this.zoomBy(this.velocity_z)
       this.setMotionTimeout();
     }
+  }
+  zoomBy(v){
+    this.zoom_level += v;
+    this.desired_image_properties.pix_x = this.pix_size_x;
+    this.desired_image_properties.pix_y = this.pix_size_y;
+
   }
 
 }

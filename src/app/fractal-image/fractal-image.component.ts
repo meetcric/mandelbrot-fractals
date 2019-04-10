@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { MatRadioChange } from '@angular/material';
 import * as interact from 'interactjs';
 import { HostListener } from '@angular/core';
+import ResizeObserver from 'resize-observer-polyfill';
+
 
 // declare var $: any;
 declare var $: any;
@@ -63,15 +65,22 @@ export class FractalImageComponent implements OnInit {
   // {float} Multiplier for zoom acceleration.
   ZOOM_ACCELERATION_FACTOR = this.ACCELERATION_FACTOR * 0.6;
 
-  constructor() {
+  constructor(private ngzone:NgZone) {
   }
 
   ngOnInit() {
     this.set(0, 0, 0.015625, 0.015625, 256, 256, 1225, "cpp", true);
     this.setParmeter();
+    
     // Make images interactive.
     this.imageInteractive();
+
+    //Modification to make ResizeObserver work .
+    this.ngzone.runOutsideAngular(() => {
+      this.ro.observe($("#imagesContainer")[0]);
+  });
   }
+  
 
 
   //set the parameter to the desired_image_properties object
@@ -264,6 +273,36 @@ export class FractalImageComponent implements OnInit {
 
   }
 
+  //when a user resizes the resizable container, this method is invoked
+  public ro = new ResizeObserver(entries => {
+   this.sizeFullViewer();
+});
+
+sizeFullViewer(){
+  let c = $("#imagesContainer");
+  let w = c.width();
+  let h = c.height();
+  // console.log(w,h)
+  this.sizeViewer(c);
+}
+  // Set viewer or playback view based on the size of the container component.
+  sizeViewer(container_el) {
+  
+    let c = container_el;
+    let c_w = c.width();
+    let w = c_w; 
+    let h = c.height();
+    
+   
+    w = Math.floor(w / 2) * 2; 
+    h = Math.floor(h / 2) * 2;
+
+    this.desired_image_properties.width=w;
+    this.desired_image_properties.height=h;
+    if (this.flag) {
+      this.updateImage();
+    }
+  }
 }
 
 

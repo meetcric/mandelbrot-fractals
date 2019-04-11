@@ -297,8 +297,13 @@ sizeFullViewer(){
     w = Math.floor(w / 2) * 2; 
     h = Math.floor(h / 2) * 2;
 
+    //set width and height of image
     this.desired_image_properties.width=w;
     this.desired_image_properties.height=h;
+    
+    //set pix_x and pix_y of image
+    this.desired_image_properties.pix_x = this.pix_size_x;
+    this.desired_image_properties.pix_y = this.pix_size_y;
     if (this.flag) {
       this.updateImage();
     }

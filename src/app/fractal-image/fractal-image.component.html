@@ -1,4 +1,12 @@
+<!--Container contains Motion mode of image "Position" and "Velocity" -->
+<div class="motionContainer">
+  <mat-radio-group aria-label="Select an option" [(ngModel)]="motion">
+    <mat-radio-button value="position" name="position" >Position</mat-radio-button>
+    <mat-radio-button value="velocity" name="velocity" >Velocity</mat-radio-button>
+  </mat-radio-group>
+</div>
 
+<!--Component rendering the Fractal-image-->
   <div id="imagesContainer" class="unselectable imagesContainer">
         <img mat-card-image  class="image" (load)="updateImage()">
-    </div>
+  </div>

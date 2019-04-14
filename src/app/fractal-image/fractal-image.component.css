@@ -1,11 +1,4 @@
-/* .image {
-  padding-top: 20px;
-  width: 256px;
-  height: 256px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-} */
+
 .imagesContainer {
   box-sizing: content-box;
   resize: both;
@@ -18,6 +11,9 @@
   height: 256px;
   width: 256px;
   position: relative;
+}
+.motionContainer{
+  padding-bottom: 20px;
 }
 .example-radio-group {
   display: inline-flex;

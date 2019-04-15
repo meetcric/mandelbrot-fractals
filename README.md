@@ -23,7 +23,7 @@ This repository is a work-in-progress and will continue to evolve in future.Now 
     - ` main.ts, polyfill.ts, test.ts`: bootstrapping of the relevant parts of the app.
     
 - `README`: general information about the app and “Getting Started”.
-- `angular.json`: defines the black list for GIT.
+- `angular.json`:  consist the sources of multiple internal applications and libraries.
 
 
 ## Getting started
